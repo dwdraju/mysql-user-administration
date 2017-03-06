@@ -1,0 +1,24 @@
+# Connect only from localhost
+mysql> CREATE USER 'finley'@'localhost' IDENTIFIED BY 'some_pass';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'finley'@'localhost' -> WITH GRANT OPTION;
+
+# Connect from any host
+mysql> CREATE USER 'finley'@'%' IDENTIFIED BY 'some_pass';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'finley'@'%' -> WITH GRANT OPTION;
+
+mysql> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin_pass';
+
+# Enable privilege for mysqladmin reload, mysqladmin refresh, mysqladmin flush-xxx & mysqladmin processlist
+# No preivilege for accessing any db
+mysql> GRANT RELOAD,PROCESS ON *.* TO 'admin'@'localhost';
+
+# No password, can only connect from localhost
+mysql> CREATE USER 'dummy'@'localhost';
+
+# Show Grant
+mysql> SHOW GRANTS FOR 'admin'@'localhost';
+
+mysql> SHOW CREATE USER 'admin'@'localhost';
+
+# Remove user account
+mysql> DROP USER 'jeffrey'@'localhost';
