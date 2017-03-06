@@ -1,0 +1,8 @@
+mysql> CREATE USER 'francis'@'localhost' IDENTIFIED BY 'frank'
+    ->     WITH MAX_QUERIES_PER_HOUR 20
+    ->          MAX_UPDATES_PER_HOUR 10
+    ->          MAX_CONNECTIONS_PER_HOUR 5
+    ->          MAX_USER_CONNECTIONS 2;
+
+
+mysql> ALTER USER 'francis'@'localhost' WITH MAX_QUERIES_PER_HOUR 100;    
